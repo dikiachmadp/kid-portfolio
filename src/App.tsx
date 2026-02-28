@@ -10,8 +10,11 @@ import { ThemeProvider } from './components/theme-provider'
 function App() {
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-            <main className="min-h-screen bg-background">
-                <Navbar />
+            {/* Navbar at root level - completely isolated from animation system */}
+            <Navbar />
+
+            {/* Page content wrapped in main - animations only affect these sections */}
+            <main className="min-h-screen bg-background overflow-x-hidden">
                 <Hero />
                 <FeaturedWork />
                 <Services />

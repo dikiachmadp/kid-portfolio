@@ -45,7 +45,7 @@ export default function Footer() {
         <footer className="px-6 pb-10 pt-8 md:px-10">
             <div className="mx-auto flex max-w-360 flex-col items-center gap-8">
                 {/* Social Icons */}
-                <div className="flex items-center gap-5">
+                <div className="flex items-center gap-2 md:gap-4">
                     {socials.map((social) => (
                         <a
                             key={social.label}

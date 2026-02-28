@@ -122,8 +122,8 @@
 ====================================================== */
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
 
   html {
@@ -133,6 +133,20 @@
   body {
     @apply bg-background text-foreground font-sans;
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  /* Allow main to scroll normally on mobile for sticky to work */
+  main {
+    @apply overflow-visible;
+    overflow-x: hidden;
+  }
+
+  img, svg, picture, video, canvas, iframe {
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -141,11 +155,12 @@
   /* Navbar */
   .navbar {
     @apply  sticky
-            top-0 
+            top-0
             left-0 
             right-0 
             z-50 
-            bg-background/95 
+            bg-background/95
+            w-full;
   }
   
   .navbar-container {
@@ -207,7 +222,8 @@
             top-full
             left-0 right-0
             z-40 
-            bg-background/95            
+            bg-background/80
+            backdrop-blur-sm          
             px-6 pb-6 
             md:hidden
   }
@@ -222,8 +238,9 @@
 
   /* Hero Section */
   .hero-section {
-  @apply  p-6 pb-20 
-          md:py-28;
+  @apply  px-6 pb-20 
+          md:py-28
+          overflow-hidden;
   }
 
   .hero-container {
@@ -254,12 +271,18 @@
           font-size: clamp(2rem, 1.38rem + 2.94vw, 3.75rem);
           line-height: 1.2;
           letter-spacing: 0.05em;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
   }
 
   .hero-title-accent {
   @apply  text-foreground;
-          font-size: clamp(8rem, 6.25rem + 2.63vw, 12rem);
+          font-size: clamp(4rem, 10vw, 12rem);
           letter-spacing: 0.075em;
+          display: block;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          max-width: 100%;
   }
 
   .hero-subtitle {
@@ -303,6 +326,7 @@
   .featured-work-section {
     @apply  px-6 py-20 
             md:px-10 md:py-28
+            overflow-hidden
   }
 
   .featured-grid {
@@ -352,7 +376,7 @@
 @layer utilities {
   .section-title {
     @apply  font-display 
-            text-6xl 
+            text-4xl md:text-6xl
             text-foreground 
             text-center
             tracking-wider;
