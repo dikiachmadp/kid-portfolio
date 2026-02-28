@@ -1,0 +1,378 @@
+@import "tailwindcss";
+
+/* ======================================================
+   COLOR TOKENS — LIGHT (DEFAULT)
+====================================================== */
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+
+  --card: #dedede;
+  --card-foreground: #1a1a1a;
+
+  --popover: #f5f5f5;
+  --popover-foreground: #1a1a1a;
+
+  --primary: #1a1a1a;
+  --primary-foreground: #ffffff;
+
+  --secondary: #bebebe;
+  --secondary-foreground: #1a1a1a;
+
+  --muted: #f0f0f0;
+  --muted-foreground: #666666;
+
+  --accent: #eaeaea;
+  --accent-foreground: #1a1a1a;
+
+  --destructive: #ff4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #dddddd;
+  --input: #dddddd;
+  --ring: #999999;
+
+  --surface: #fafafa;
+
+  --radius: 2rem;
+}
+
+/* ======================================================
+   DARK MODE — TRUE INVERSE
+====================================================== */
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+
+  --card: #242424;
+  --card-foreground: #ffffff;
+
+  --popover: #242424;
+  --popover-foreground: #ffffff;
+
+  --primary: #ffffff;
+  --primary-foreground: #1a1a1a;
+
+  --secondary: #494949;
+  --secondary-foreground: #ffffff;
+
+  --muted: #2a2a2a;
+  --muted-foreground: #999999;
+
+  --accent: #2a2a2a;
+  --accent-foreground: #ffffff;
+
+  --destructive: #ff4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #333333;
+  --input: #333333;
+  --ring: #555555;
+
+  --surface: #1e1e1e;
+}
+
+/* ======================================================
+   THEME MAPPING
+====================================================== */
+
+@theme inline {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Luckiest Guy", cursive;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ======================================================
+   BASE
+====================================================== */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer components {
+  
+  /* Navbar */
+  .navbar {
+    @apply  sticky
+            top-0 
+            left-0 
+            right-0 
+            z-50 
+            bg-background/95 
+  }
+  
+  .navbar-container {
+    @apply  mx-auto 
+            flex max-w-360 
+            items-center 
+            justify-between 
+            px-6 py-4 
+            md:px-10
+  }
+
+  .navbar-logo {
+    @apply  shrink-0 
+            mr-5 flex 
+            items-center 
+            gap-2 
+            bg-secondary 
+            text-card-foreground 
+            rounded-2xl 
+            px-2 py-2 
+            transition-colors 
+            duration-200 
+            hover:bg-accent
+  }
+
+  .nav-link {
+    @apply  text-sm 
+            text-muted-foreground 
+            transition-colors 
+            duration-200 
+            hover:text-foreground
+  }
+
+  .dark-mode-toggle {
+    @apply  flex 
+            h-10 w-10 
+            items-center 
+            justify-center 
+            rounded-full 
+            text-muted-foreground 
+            transition-colors duration-200 
+            hover:text-foreground
+  }
+
+  .menu-toggle {
+    @apply  flex 
+            h-10 w-10 
+            items-center 
+            justify-center 
+            rounded-full 
+            text-muted-foreground 
+            transition-colors 
+            hover:text-foreground 
+            md:hidden
+  }
+
+  .mobile-nav {
+    @apply  absolute
+            top-full
+            left-0 right-0
+            z-40 
+            bg-background/95            
+            px-6 pb-6 
+            md:hidden
+  }
+
+  .mobile-nav-link {
+    @apply  block 
+            text-sm 
+            text-muted-foreground 
+            transition-colors 
+            hover:text-foreground
+  }
+
+  /* Hero Section */
+  .hero-section {
+  @apply  p-6 pb-20 
+          md:py-28;
+  }
+
+  .hero-container {
+  @apply  mx-auto grid 
+          items-center 
+          md:grid-cols-2;
+          max-width: clamp(75rem, 70rem + 5vw, 90rem);
+          gap: clamp(3rem, 2.44rem + 2.63vw, 5rem);
+  }
+
+  .hero-image-wrapper {
+  @apply  w-full object-contain;
+          max-width: clamp(27rem, 22.5rem + 14vw, 40rem);
+          border-radius: clamp(1rem, 0.56rem + 2.06vw, 2.5rem);
+  }
+
+  .hero-content {
+  @apply  flex flex-col 
+          items-center 
+          text-center 
+          md:items-start 
+          md:text-left;
+          gap: clamp(1rem, 0.72rem + 1.31vw, 2rem);
+  }
+
+  .hero-title {
+  @apply  font-display text-foreground;
+          font-size: clamp(2rem, 1.38rem + 2.94vw, 3.75rem);
+          line-height: 1.2;
+          letter-spacing: 0.05em;
+  }
+
+  .hero-title-accent {
+  @apply  text-foreground;
+          font-size: clamp(8rem, 6.25rem + 2.63vw, 12rem);
+          letter-spacing: 0.075em;
+  }
+
+  .hero-subtitle {
+  @apply  text-muted-foreground 
+          leading-normal 
+          max-w-120
+          md:max-w-360;
+          font-size: clamp(1rem, 0.93rem + 0.37vw, 1.25rem);
+  }
+
+  .hero-rating {
+  @apply  mb-4 flex 
+          items-center 
+          gap-2 
+          text-muted-foreground;
+          font-size: clamp(0.75rem, 0.72rem + 0.18vw, 0.875rem);
+  }
+
+  .stat-card {
+  @apply  flex flex-col 
+          items-center 
+          bg-card;
+          border-radius: clamp(1rem, 0.56rem + 2.06vw, 2.5rem);
+          padding: clamp(2rem, 1.72rem + 1.31vw, 3rem);
+  }
+
+  .stat-number {
+  @apply  text-center 
+          font-display 
+          text-foreground;
+          font-size: clamp(2.5rem, 1.94rem + 2.63vw, 4.5rem);
+  }
+
+  .stat-label {
+  @apply  text-center 
+          text-muted-foreground;
+          font-size: clamp(0.75rem, 0.72rem + 0.18vw, 0.875rem);
+  }
+
+  /* Featured Section */
+  .featured-work-section {
+    @apply  px-6 py-20 
+            md:px-10 md:py-28
+  }
+
+  .featured-grid {
+    @apply  mt-12 grid gap-6 
+            md:mt-16 md:grid-cols-3 md:gap-18
+  }
+
+
+  /* Buttons */
+  .bg-card {
+    background-color: var(--color-card);
+  }
+
+  .text-foreground {
+    color: var(--color-foreground);
+  }
+
+  .btn {
+    @apply  flex h-18 
+            items-center 
+            gap-3 rounded-2xl 
+            bg-card px-10 
+            font-display 
+            text-lg 
+            tracking-wider 
+            text-foreground 
+            transition-colors 
+            hover:bg-secondary 
+            md:h-20 md:text-xl
+  }
+
+  .btn-secondary {
+    @apply  flex h-18
+            items-center 
+            gap-3 rounded-2xl 
+            bg-foreground px-10 
+            font-display 
+            text-lg 
+            tracking-wide 
+            text-background 
+            transition-colors 
+            hover:bg-foreground/90 
+            md:h-20 md:text-xl
+  }
+}
+
+@layer utilities {
+  .section-title {
+    @apply  font-display 
+            text-6xl 
+            text-foreground 
+            text-center
+            tracking-wider;
+  }
+
+  .service-title {
+    @apply  font-display 
+            text-2xl tracking-wider 
+            text-foreground 
+            text-center
+            md:text-xl
+  }
+
+  .service-icon {
+    @apply  flex h-16 w-16 
+            items-center 
+            justify-center 
+            rounded-2xl 
+            bg-secondary 
+            text-foreground
+            md:h-20 md:w-20
+  }
+}
