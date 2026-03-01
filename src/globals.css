@@ -331,7 +331,7 @@
 
   .featured-grid {
     @apply  mt-12 grid gap-6 
-            md:mt-16 md:grid-cols-3 md:gap-18
+            md:mt-16 md:grid-cols-3 md:gap-10
   }
 
 
@@ -345,31 +345,31 @@
   }
 
   .btn {
-    @apply  flex h-18 
+    @apply  flex h-15 
             items-center 
             gap-3 rounded-2xl 
-            bg-card px-10 
+            bg-card px-8 
             font-display 
-            text-lg 
+            text-2xl 
             tracking-wider 
             text-foreground 
             transition-colors 
             hover:bg-secondary 
-            md:h-20 md:text-xl
+            md:h-15 md:text-2xl
   }
 
   .btn-secondary {
-    @apply  flex h-18
+    @apply  flex h-15
             items-center 
             gap-3 rounded-2xl 
-            bg-foreground px-10 
+            bg-foreground px-8 
             font-display 
-            text-lg 
+            text-2xl 
             tracking-wide 
             text-background 
             transition-colors 
-            hover:bg-foreground/90 
-            md:h-20 md:text-xl
+            hover:bg-foreground/75 
+            md:h-15 md:text-2xl
   }
 }
 
