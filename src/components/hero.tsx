@@ -8,14 +8,29 @@ export default function Hero() {
                 {/* Image */}
                 <div className="flex justify-center md:order-2">
                     <Reveal>
-                        <div className="hero-image-wrapper">
-                            <img
-                                src="/images/hero-image.png"
-                                alt="Diki working at desk illustration"
-                                width={600}
-                                height={600}
-                                className="hero-image"
-                            />
+                        <div className="hero-image-wrapper relative p-0.5 group transition-all duration-500 hover:scale-[1.01] aspect-video w-full max-w-md md:max-w-lg lg:max-w-xl">
+                            {/* Background Glow Dinamis (Efek Pendaran di Belakang) */}
+                            <div
+                                className="absolute -inset-1 bg-(--hero-glow-color) rounded-(--hero-frame-radius) opacity-30 blur-xl group-hover:opacity-60 animate-glow transition-opacity duration-500"
+                            ></div>
+                            <div className="relative h-60 md:h-96 bg-white/5 backdrop-blur-sm border border-(--hero-frame-border) p-2 rounded-(--hero-frame-radius) shadow-2xl overflow-hidden">
+                                <video
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    {...{ "webkit-playsinline": "true" }}
+                                    preload="auto"
+                                    className="w-full h-full object-cover rounded-[calc(var(--hero-frame-radius)-0.5rem)] bg-transparent"
+                                >
+                                    <source
+                                        src="/images/hero-video.mp4"
+                                        type="video/mp4"
+                                    />
+
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
                         </div>
                     </Reveal>
                 </div>
@@ -28,7 +43,7 @@ export default function Hero() {
                                 WELCOME TO MY
                                 <br />
                                 <span className="hero-title-accent">
-                                    VERSE
+                                    SPACE
                                 </span>
                             </h1>
 

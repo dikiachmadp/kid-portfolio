@@ -23,7 +23,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <a href="#" className="navbar-logo">
                     <img
-                        src="/images/logo.png"
+                        src="/images/logo.webp"
                         alt="Senor Kid logo"
                         width={48}
                         height={48}

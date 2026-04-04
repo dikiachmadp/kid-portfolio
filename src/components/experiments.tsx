@@ -26,7 +26,7 @@ export default function Experiments() {
                         {/* Image */}
                         <div className="w-full max-w-150 overflow-hidden rounded-4xl bg-card">
                             <img
-                                src="/images/experiment-image.png"
+                                src="/images/experiment-image.webp"
                                 alt="Retro computer experiment illustration"
                                 width={600}
                                 height={450}

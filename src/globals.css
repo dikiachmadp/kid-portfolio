@@ -239,7 +239,7 @@
   /* Hero Section */
   .hero-section {
   @apply  px-6 pb-20 
-          md:py-28
+          md:py-20
           overflow-hidden;
   }
 
@@ -269,7 +269,7 @@
   .hero-title {
   @apply  font-display text-foreground;
           font-size: clamp(2rem, 1.38rem + 2.94vw, 3.75rem);
-          line-height: 1.2;
+          line-height: 1.1;
           letter-spacing: 0.05em;
           word-wrap: break-word;
           overflow-wrap: break-word;
@@ -277,7 +277,7 @@
 
   .hero-title-accent {
   @apply  text-foreground;
-          font-size: clamp(4rem, 10vw, 12rem);
+          font-size: clamp(6rem, 10vw, 10rem);
           letter-spacing: 0.075em;
           display: block;
           word-wrap: break-word;
@@ -290,7 +290,7 @@
           leading-normal 
           max-w-120
           md:max-w-360;
-          font-size: clamp(1rem, 0.93rem + 0.37vw, 1.25rem);
+          font-size: clamp(0.875rem, 0.6rem + 0.45vw, 1.25rem);
   }
 
   .hero-rating {
@@ -306,7 +306,7 @@
           items-center 
           bg-card;
           border-radius: clamp(1rem, 0.56rem + 2.06vw, 2.5rem);
-          padding: clamp(2rem, 1.72rem + 1.31vw, 3rem);
+          padding: clamp(1rem, 1rem + 1vw, 3rem);
   }
 
   .stat-number {
@@ -399,4 +399,20 @@
             text-foreground
             md:h-20 md:w-20
   }
+}
+:root {
+  --hero-frame-radius: 2rem;
+  --hero-frame-border: rgba(255, 255, 255, 0.2);
+  --hero-glow-color: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+}
+
+@keyframes slow-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-glow {
+  background-size: 200% 200%;
+  animation: slow-pan 5s linear infinite;
 }
