@@ -159,7 +159,8 @@
             left-0 
             right-0 
             z-50 
-            bg-background/95
+            backdrop-blur-xl
+            bg-background/60
             w-full;
   }
   
@@ -174,7 +175,7 @@
 
   .navbar-logo {
     @apply  shrink-0 
-            mr-5 flex 
+            mr-0 flex 
             items-center 
             gap-2 
             bg-secondary 
