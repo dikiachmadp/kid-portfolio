@@ -39,7 +39,7 @@ export default function FeaturedWork() {
                 <div className="featured-grid">
                     {projects.map((project, index) => (
                         <StaggerItem key={project.title} delay={index * 0.1}>
-                            <div className="group relative overflow-hidden rounded-2xl bg-card shadow-lg transition-transform duration-300 hover:scale-105">
+                            <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-brutalist transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none">
                                 {/* Placeholder project image area */}
                                 <div className="relative aspect-square w-full overflow-hidden">
                                     <img
@@ -72,7 +72,7 @@ export default function FeaturedWork() {
                 {/* CTA Button */}
                 <Reveal delay={0.3}>
                     <div className="mt-12 flex justify-center md:mt-16">
-                        <button className="btn">
+                        <button className="btn border border-border shadow-brutalist transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none">
                             ALL PROJECTS
                         </button>
                     </div>

@@ -43,7 +43,7 @@ export default function Navbar() {
             <nav className="navbar">
                 <div className="navbar-container">
                     {/* Logo */}
-                    <a href="#" className="navbar-logo">
+                    <a href="#" className="navbar-logo border border-border shadow-brutalist transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none">
                         <img
                             src="/images/logo.webp"
                             alt="Senor Kid logo"
@@ -68,7 +68,7 @@ export default function Navbar() {
                     <div className="flex items-center justify-end gap-4">
                         <button
                             aria-label="Toggle theme"
-                            className="dark-mode-toggle navbar-logo"
+                            className="dark-mode-toggle navbar-logo border border-border shadow-brutalist transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none"
                             onClick={toggleTheme}
                         >
                             {theme === 'dark' ? (
@@ -82,18 +82,25 @@ export default function Navbar() {
             </nav>
 
             {/* --- MOBILE BOTTOM NAVIGATION (Khusus Tampilan Mobile) --- */}
-            <div className={`fixed bottom-6 left-1/2 z-50 w-[92%] -translate-x-1/2 rounded-2xl p-4 shadow-md transition-all duration-500 backdrop-blur-xl dark:border-background dark:bg-card/60 md:hidden ${isAtBottom ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100'
-                }`}>
-                <div className="flex items-center justify-around">
+            <div className={`fixed bottom-6 left-1/2 z-50 w-[92%] -translate-x-1/2 
+    /* 1. Reset Gaya Modern ke Brutalist */
+    rounded-xl border-2 border-border bg-card shadow-brutalist 
+    transition-all duration-500 md:hidden 
+    
+    /* 2. Logika Sembunyi saat di Bottom */
+    ${isAtBottom ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100'}
+`}>
+                <div className="flex items-center justify-around py-3">
                     {navLinks.map((link) => {
                         const Icon = link.icon
                         return (
                             <a
                                 key={link.label}
                                 href={link.href}
-                                className="flex flex-col items-center gap-1 text-[10px] font-black uppercase tracking-tighter text-black dark:text-muted-foreground"
+                                className="group flex flex-col items-center gap-1 text-[10px] font-black uppercase tracking-tighter text-foreground transition-transform active:scale-90"
                             >
-                                <Icon className="h-6 w-6" />
+                                {/* Icon dengan hover effect simple */}
+                                <Icon className="h-6 w-6 transition-transform group-hover:-translate-y-1" />
                                 <span>{link.label}</span>
                             </a>
                         )

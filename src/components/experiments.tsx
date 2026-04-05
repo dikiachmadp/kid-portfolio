@@ -47,7 +47,7 @@ export default function Experiments() {
                 {/* CTA Button */}
                 <Reveal delay={0.2}>
                     <div className="mt-12 flex justify-center md:mt-16">
-                        <button className="btn">
+                        <button className="btn border border-border shadow-brutalist transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none">
                             MY LAB
                         </button>
                     </div>
